@@ -51,7 +51,7 @@ function getResponse() {
   //print response
   printResponse(response);
 
-  printToLog(getQuestion, response);
+  printToLog(getQuestion(), response);
 
   //clear input
   clearInput();
@@ -80,11 +80,33 @@ function getQuestion() {
 function printToLog(question, response) {
   logEl = document.getElementById('log');
   li = document.createElement('li');
-  li.innerHTML = "<small>User asks:</small> " + question() + "? <small>8 Ball Says: </small>" + response;
+  li.innerHTML = "<small>User asks:</small> " + question + "? <small>8 Ball Says: </small>" + response;
 
   logEl.appendChild(li);
-  console.log(question(), response);
 };
 
 
-function
+
+function easterEggCheck() {
+  var inputEl = document.getElementById('question');
+  var inputQuestion = inputEl.value;
+  console.log(inputQuestion);
+
+  for (var i = 0; i < easterEggs.length; i++) {
+    var easterQuestion = easterEggs[i].question;
+    if (inputQuestion.toLowerCase() === easterQuestion.toLowerCase()) {
+      var easterEggResponse = easterEggs[i].response;
+      printResponse(easterEggResponse);
+      printToLog(inputQuestion, easterEggResponse);
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+function submitHandler() {
+  if(!easterEggCheck()) {
+    getResponse();
+  }
+};
