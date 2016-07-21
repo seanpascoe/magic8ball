@@ -19,7 +19,28 @@ var magicValues = [
 "My reply is no",
 "My sources say no",
 "Outlook not so good",
-"Very doubtful"]
+"Very doubtful"
+];
+
+
+var easterEggs = [
+  {
+    question: "Is this an Easter Egg",
+    response: "Yes this is an Easter Egg! Muahaha!"
+  },
+  {
+    question: "Is this an Easter Egg1",
+    response: "Yes this is an Easter Egg! Muahaha!1"
+  },
+  {
+    question: "Is this an Easter Egg2",
+    response: "Yes this is an Easter Egg! Muahaha!2"
+  },
+  {
+    question: "Is this an Easter Egg3",
+    response: "Yes this is an Easter Egg! Muahaha!3"
+  },
+];
 
 //return random response//
 function getResponse() {
@@ -29,17 +50,41 @@ function getResponse() {
   var response = magicValues[randomNumber];
   //print response
   printResponse(response);
+
+  printToLog(getQuestion, response);
+
   //clear input
   clearInput();
 
 };
 
 function printResponse(response) {
+  //prints the response parameter to the dom
   var responseEl = document.getElementById('answer');
   responseEl.innerHTML = response;
 };
 
 function clearInput() {
+  //clears the input field
   var inputEl = document.getElementById('question');
   inputEl.value = "";
 };
+
+
+function getQuestion() {
+  var inputEl = document.getElementById('question');
+  var question = inputEl.value;
+  return question;
+};
+
+function printToLog(question, response) {
+  logEl = document.getElementById('log');
+  li = document.createElement('li');
+  li.innerHTML = "<small>User asks:</small> " + question() + "? <small>8 Ball Says: </small>" + response;
+
+  logEl.appendChild(li);
+  console.log(question(), response);
+};
+
+
+function
