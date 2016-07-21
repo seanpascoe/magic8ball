@@ -58,35 +58,38 @@ function getResponse() {
 
 };
 
+// prints the response parameter to the dom
 function printResponse(response) {
-  //prints the response parameter to the dom
   var responseEl = document.getElementById('answer');
   responseEl.innerHTML = response;
 };
 
+// clears the input field
 function clearInput() {
-  //clears the input field
   var inputEl = document.getElementById('question');
   inputEl.value = "";
 };
 
-
+// retrieve and return the input question from DOM input
 function getQuestion() {
   var inputEl = document.getElementById('question');
   var question = inputEl.value;
   return question;
 };
 
+// print both question and response to the log DOM element
 function printToLog(question, response) {
   logEl = document.getElementById('log');
   li = document.createElement('li');
-  li.innerHTML = "<small>User asks:</small> " + question + "? <small>8 Ball Says: </small>" + response;
+  li.className = "valign-wrapper";
+  li.innerHTML = "<i class='material-icons'>send</i><small>&nbsp;&nbsp;User asks:&nbsp;</small> " + question + "?&nbsp;&nbsp;<small>8 Ball Says:&nbsp</small>" + response;
 
   logEl.appendChild(li);
 };
 
 
-
+// check to see whether input is easter egg, print response and to log and return true
+// if it is, if not return false
 function easterEggCheck() {
   var inputEl = document.getElementById('question');
   var inputQuestion = inputEl.value;
@@ -98,13 +101,15 @@ function easterEggCheck() {
       var easterEggResponse = easterEggs[i].response;
       printResponse(easterEggResponse);
       printToLog(inputQuestion, easterEggResponse);
+      clearInput();
       return true;
-    } else {
-      return false;
     }
   }
+  return false;
 }
 
+// top-level function fired when submit button is clicked
+// checks for easter egg and triggers normal procedure
 function submitHandler() {
   if(!easterEggCheck()) {
     getResponse();

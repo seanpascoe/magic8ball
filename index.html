@@ -3,20 +3,29 @@
   <head>
     <meta charset="utf-8">
     <link href="materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css" media="screen" charset="utf-8">
     <title>Magic 8 Ball</title>
   </head>
   <body>
     <h1 class="center">Magic 8 Ball</h1>
     <div class="row">
-      <div class="col s12 m6">
-        <div class="card">
+      <div class="col s12 m8 l6">
+        <div class="card center">
           <div class="card-image">
             <img src="image.jpg">
-            <input type="text" id="question"/>
-            <button onclick="submitHandler()">Submit</button>
-            <div id="answer"></div>
-            <ul id="log"></ul>
+            <div class="qa-block">
+              <input type="text" id="question" placeholder="Enter your question..."/>
+              <button class="btn" onclick="submitHandler()">Submit</button>
+              <span id="answer"></span>
+            </div>
           </div>
+        </div>
+      </div>
+      <div class="col s12 m4 l6">
+        <div class="card">
+          <h4 class="center">Log</h4>
+          <ul id="log"></ul>
         </div>
       </div>
     </div>
