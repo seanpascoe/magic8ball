@@ -2,14 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link href="materialize.min.css" rel="stylesheet">
     <title>Magic 8 Ball</title>
   </head>
   <body>
-    <h1>Magic 8 Ball</h1>
-    <input type="text" id="question"/>
-    <button onclick="getResponse()">Submit</button>
-    <div id="answer"></div>
-    <ul id="log"></ul>
+    <h1 class="center">Magic 8 Ball</h1>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-image">
+            <img src="image.jpg">          
+              <input type="text" id="question"/>
+              <button onclick="getResponse()">Submit</button>
+              <div id="answer"></div>
+                <ul id="log"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>
