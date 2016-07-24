@@ -25,8 +25,8 @@ var magicValues = [
 
 var easterEggs = [
   {
-    question: "Is this an Easter Egg",
-    response: "Yes this is an Easter Egg! Muahaha!"
+    question: "add_answer",
+    response: "No Dude!"
   },
   {
     question: "Is this an Easter Egg1",
@@ -70,6 +70,16 @@ function clearInput() {
   inputEl.value = "";
 };
 
+function clearLog() {
+  logEl = document.getElementById('log');
+  logEl.innerHTML = "";
+}
+
+function clearResponse() {
+  var responseEl = document.getElementById('answer');
+  responseEl.innerHTML = "";
+}
+
 // retrieve and return the input question from DOM input
 function getQuestion() {
   var inputEl = document.getElementById('question');
@@ -87,13 +97,23 @@ function printToLog(question, response) {
   logEl.appendChild(li);
 };
 
-
 // check to see whether input is easter egg, print response and to log and return true
 // if it is, if not return false
 function easterEggCheck() {
   var inputEl = document.getElementById('question');
   var inputQuestion = inputEl.value;
   console.log(inputQuestion);
+
+  if (!inputQuestion) {
+    return true;
+  }
+
+  if (inputQuestion === "clear_history") {
+    clearInput();
+    clearLog();
+    clearResponse();
+    return true;
+  }
 
   for (var i = 0; i < easterEggs.length; i++) {
     var easterQuestion = easterEggs[i].question;
@@ -115,3 +135,15 @@ function submitHandler() {
     getResponse();
   }
 };
+
+function keyFunc(event) {
+  if (event.keyCode === 13) {
+    submitHandler();
+  }
+  if (event.keyCode === 27) {
+    clearInput();
+  }
+}
+
+
+document.addEventListener("keydown", keyFunc);
