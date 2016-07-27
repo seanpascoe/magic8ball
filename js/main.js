@@ -60,8 +60,12 @@ function getResponse() {
 
 // prints the response parameter to the dom
 function printResponse(response) {
-  var responseEl = document.getElementById('answer');
+  var responseDiv = document.getElementById('answer-div');
+  responseDiv.innerHTML = "";
+  var responseEl = document.createElement('span');
+  responseEl.className = "answer";
   responseEl.innerHTML = response;
+  responseDiv.appendChild(responseEl);
 };
 
 // clears the input field
@@ -76,8 +80,8 @@ function clearLog() {
 }
 
 function clearResponse() {
-  var responseEl = document.getElementById('answer');
-  responseEl.innerHTML = "";
+  var responseDiv = document.getElementById('answer-div');
+  responseDiv.innerHTML = "";
 }
 
 // retrieve and return the input question from DOM input

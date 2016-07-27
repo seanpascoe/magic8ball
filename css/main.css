@@ -20,7 +20,7 @@
   margin-bottom: 100px;
 }
 
-#answer {
+.answer {
   display: block;
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
