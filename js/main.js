@@ -29,8 +29,8 @@ var easterEggs = [
     response: "No Dude!"
   },
   {
-    question: "Is this an Easter Egg1",
-    response: "Yes this is an Easter Egg! Muahaha!1"
+    question: "Is this an Easter Egg",
+    response: "Yes this is an Easter Egg! Muahaha!"
   },
   {
     question: "Is this an Easter Egg2",
